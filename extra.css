@@ -1,0 +1,54 @@
+.site-header,
+.site-footer {
+	background-color: #9A1800;
+}
+
+.logotype {
+	float: left;
+	margin-bottom: 10px;
+}
+
+.site-title,
+.site-description {
+	color: white;
+	margin: 10px 10px 10px 120px;
+}
+
+.site-title {
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: normal;
+}
+
+h1.site-title {
+	clear: none;
+}
+
+.site-description {
+	font-style: italic;
+}
+
+.main-navigation {
+	background-color: navy;
+}
+
+.site-main .posts-navigation {
+	background-color: red;
+	margin-bottom: 0px;
+}
+
+.site-main {
+	background-color: #AAAAAA;
+}
+
+.widget-area {
+	background-color: yellow;
+}
+
+article.post {
+	border: 3px green dotted;
+}
+
+aside.widget {
+	border: 3px red dotted;
+}

@@ -116,6 +116,8 @@ add_action( 'widgets_init', 'prizrak_widgets_init' );
 function prizrak_scripts() {
 	wp_enqueue_style( 'prizrak-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'prizrak-extra', get_stylesheet_directory_uri() . '/extra.css' );
+
 	wp_enqueue_script( 'prizrak-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'prizrak-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -150,3 +152,13 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Customisations
+ */
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'wp_generator' );
+/*remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+remove_action( 'wp_head', 'feed_links_extra', 3 );*/
