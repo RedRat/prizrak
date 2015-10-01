@@ -2,7 +2,7 @@
 /**
  * Prizrak functions and definitions.
  *
- * @link https://codex.wordpress.org/Functions_File_Explained
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Prizrak
  */
