@@ -1,8 +1,8 @@
 <?php
 /**
- * Template part for displaying page content in page.php.
+ * Template part for displaying page content in page.php
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Prizrak
  */
@@ -14,28 +14,39 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
+	<?php prizrak_post_thumbnail(); ?>
+
 	<div class="entry-content">
-		<?php the_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'prizrak' ),
-				'after'  => '</div>',
-			) );
+		the_content();
+
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'prizrak' ),
+			'after'  => '</div>',
+		) );
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php
+	<?php if ( get_edit_post_link() ) : ?>
+		<footer class="entry-footer">
+			<?php
 			edit_post_link(
 				sprintf(
-					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'prizrak' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'prizrak' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
 				),
 				'<span class="edit-link">',
 				'</span>'
 			);
-		?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
+			?>
+		</footer><!-- .entry-footer -->
+	<?php endif; ?>
+</article><!-- #post-<?php the_ID(); ?> -->
